@@ -80,9 +80,9 @@ void srdf::Model::loadVirtualJoints(const urdf::ModelInterface &urdf_model, TiXm
     VirtualJoint vj;
     vj.type_ = std::string(type); boost::trim(vj.type_);
     std::transform(vj.type_.begin(), vj.type_.end(), vj.type_.begin(), ::tolower);
-    if (vj.type_ != "planar" && vj.type_ != "floating" && vj.type_ != "fixed")
+    if (vj.type_ != "planar" && vj.type_ != "floating" && vj.type_ != "fixed" && vj.type_ != "revolute" && vj.type_ != "prismatic")
     {
-      logError("Unknown type of joint: '%s'. Assuming 'fixed' instead. Other known types are 'planar' and 'floating'.", type);
+      logError("Unknown type of joint: '%s'. Assuming 'fixed' instead. Other known types are 'planar', 'revolute', 'prismatic' and 'floating'.", type);
       vj.type_ = "fixed";
     }
     vj.name_ = std::string(jname); boost::trim(vj.name_);        
