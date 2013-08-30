@@ -566,6 +566,7 @@ bool srdf::Model::initXml(const urdf::ModelInterface &urdf_model, TiXmlElement *
   else
   {
     name_ = std::string(name); boost::trim(name_);
+    //~ logError("name_: %s       urdf_model.getName():%s", name_.c_str(), urdf_model.getName().c_str());
     if (name_ != urdf_model.getName())
       logError("Semantic description is not specified for the same robot as the URDF");
   }
